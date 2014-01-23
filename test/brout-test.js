@@ -8,7 +8,7 @@
 /*globals describe, it, beforeEach, afterEach*/
 'use strict';
 
-var stdio  = require('../lib/stdio');
+var brout  = require('../lib/brout');
 var events = require('events');
 var assert = require('assert');
 
@@ -27,8 +27,8 @@ function originalErr(str) {
 }
 
 
-stdio.on('out', originalOut);
-stdio.on('err', originalErr);
+brout.on('out', originalOut);
+brout.on('err', originalErr);
 
 
 function createFake() {
@@ -41,7 +41,7 @@ function createFake() {
 }
 
 
-describe('stdio', function () {
+describe('brout', function () {
 
   var out;
   var err;
@@ -49,18 +49,18 @@ describe('stdio', function () {
   beforeEach(function () {
     out = createFake();
     err = createFake();
-    stdio.on('out', out);
-    stdio.on('err', err);
+    brout.on('out', out);
+    brout.on('err', err);
   });
 
   afterEach(function () {
-    stdio.removeAllListeners();
-    stdio.on('out', originalOut);
-    stdio.on('err', originalErr);
+    brout.removeAllListeners();
+    brout.on('out', originalOut);
+    brout.on('err', originalErr);
   });
 
   it('is an instance of EventEmitter', function () {
-    assert(stdio instanceof events.EventEmitter);
+    assert(brout instanceof events.EventEmitter);
   });
 
   it('emits out event on process.stdout.write', function () {
@@ -107,7 +107,7 @@ describe('stdio', function () {
 
   it('emits exit event on process.exit', function () {
     var fake = createFake();
-    stdio.on('exit', fake);
+    brout.on('exit', fake);
 
     process.exit(7);
 
@@ -116,71 +116,71 @@ describe('stdio', function () {
   });
 
   it('prints result in original console.log if no listeners', function () {
-    stdio.removeAllListeners();
+    brout.removeAllListeners();
     var previousOriginal = console.log.original;
     var fake = console.log.original = createFake();
 
     process.stdout.write('Check\n');
     console.log.original = previousOriginal;
-    stdio.on('out', originalOut);
-    stdio.on('err', originalErr);
+    brout.on('out', originalOut);
+    brout.on('err', originalErr);
 
     assert(fake.called);
     assert.deepEqual(fake.args, ['Check']);
   });
 
   it('prints result in original console.warn if no listeners', function () {
-    stdio.removeAllListeners();
+    brout.removeAllListeners();
     var previousOriginal = console.warn.original;
     var fake = console.warn.original = createFake();
 
     process.stderr.write('Check\n');
     console.warn.original = previousOriginal;
-    stdio.on('out', originalOut);
-    stdio.on('err', originalErr);
+    brout.on('out', originalOut);
+    brout.on('err', originalErr);
 
     assert(fake.called);
     assert.deepEqual(fake.args, ['Check']);
   });
 
   it('collects multiple calls until newline is found', function () {
-    stdio.removeAllListeners();
+    brout.removeAllListeners();
     var previousOriginal = console.log.original;
     var fake = console.log.original = createFake();
 
     process.stdout.write('Check ');
     process.stdout.write('123!\n');
     console.log.original = previousOriginal;
-    stdio.on('out', originalOut);
-    stdio.on('err', originalErr);
+    brout.on('out', originalOut);
+    brout.on('err', originalErr);
 
     assert(fake.called);
     assert.deepEqual(fake.args, ['Check 123!']);
   });
 
   it('buffers additional characters after newline', function () {
-    stdio.removeAllListeners();
+    brout.removeAllListeners();
     var previousOriginal = console.log.original;
     var fake = console.log.original = createFake();
 
     process.stdout.write('Check\n123!');
     process.stdout.write('\n');
     console.log.original = previousOriginal;
-    stdio.on('out', originalOut);
-    stdio.on('err', originalErr);
+    brout.on('out', originalOut);
+    brout.on('err', originalErr);
 
     assert.deepEqual(fake.args, ['123!']);
   });
 
   it('logs multiple times for each newline', function () {
-    stdio.removeAllListeners();
+    brout.removeAllListeners();
     var previousOriginal = console.log.original;
     var fake = console.log.original = createFake();
 
     process.stdout.write('Check\n123!\n');
     console.log.original = previousOriginal;
-    stdio.on('out', originalOut);
-    stdio.on('err', originalErr);
+    brout.on('out', originalOut);
+    brout.on('err', originalErr);
 
     assert.deepEqual(fake.args, ['123!']);
   });
