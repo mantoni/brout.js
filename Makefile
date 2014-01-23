@@ -6,7 +6,7 @@ version = $(shell node -p "require('./package.json').version")
 
 .PHONY: test
 test:
-	@jslint --color=1 lib/brout.js ${tests}
+	@jslint --color lib/*.js ${tests}
 	@browserify ${tests} | mocaccino -b | phantomic
 
 release: test
