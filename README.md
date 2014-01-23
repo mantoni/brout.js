@@ -24,15 +24,15 @@ console.log('Hello %s!', 'console');
 Use with [browserify][] and [phantomic][]:
 
 ```
-$ browserify ./node_modules/brout my-script.js | phantomic
+$ browserify -t brout my-script.js | phantomic
 Hello stdout!
 Hello console!
 ```
 
-Headless testing with [Mocha][] can be done like this:
+Headless testing with [Mocha][] requires [mocaccino][]:
 
 ```
-$ browserify ./node_modules/brout my-test.js | mocaccino -b -r list | phantomic
+$ browserify -t brout my-test.js | mocaccino -b -r spec | phantomic
 ```
 
 ## API
@@ -80,3 +80,4 @@ MIT
 [browserify]: http://browserify.org
 [phantomic]: https://github.com/mantoni/phantomic
 [Mocha]: http://visionmedia.github.io/mocha/
+[mocaccino]: https://github.com/mantoni/mocaccino.js

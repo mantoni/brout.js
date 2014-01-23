@@ -2,10 +2,11 @@
   "name"            : "brout",
   "version"         : "0.1.0",
   "description"     : "stdout and stderr for browsers",
-  "keywords"        : ["stdout", "stderr", "browser"],
+  "keywords"        : ["stdout", "stderr", "browser", "browserify", "browserify-transform"],
   "author"          : "Maximilian Antoni (http://maxantoni.de)",
   "homepage"        : "https://github.com/mantoni/brout.js",
-  "main"            : "./lib/brout.js",
+  "main"            : "./lib/transform.js",
+  "browser"         : "./lib/brout.js",
   "engines"         : {
     "node"          : ">=0.10"
   },
@@ -16,12 +17,15 @@
     "type"          : "git",
     "url"           : "https://github.com/mantoni/brout.js.git"
   },
+  "dependency"      : {
+    "through"       : "~2.3.4"
+  },
   "devDependencies" : {
     "mocha"         : ">=1.17 <2",
     "jslint"        : "~0.2.6",
     "browserify"    : ">=3.21 <4",
     "mocaccino"     : "~0.2.0",
-    "phantomic"     : "~0.2.1"
+    "phantomic"     : "~0.2.2"
   },
   "files"           : ["lib", "README.md", "LICENSE"],
   "license"         : "MIT"
