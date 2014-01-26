@@ -1,6 +1,6 @@
 {
   "name"            : "brout",
-  "version"         : "0.1.1",
+  "version"         : "0.1.2",
   "description"     : "stdout and stderr for browsers",
   "keywords"        : ["stdout", "stderr", "browser", "browserify", "browserify-transform"],
   "author"          : "Maximilian Antoni (http://maxantoni.de)",
