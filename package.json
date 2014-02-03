@@ -11,7 +11,8 @@
     "node"          : ">=0.10"
   },
   "scripts"         : {
-    "test"          : "make test"
+    "lint"          : "jslint --color -- ./**/*.js",
+    "test"          : "npm run lint && browserify ./test/*.js | mocaccino -b | phantomic"
   },
   "repository"      : {
     "type"          : "git",
