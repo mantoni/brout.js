@@ -115,6 +115,27 @@ describe('brout', function () {
     assert.deepEqual(fake.args, [7]);
   });
 
+  it('logs error on process.exit with code 1', function () {
+    var previousOriginal = console.error.original;
+    var fake = console.error.original = createFake();
+
+    process.exit(1);
+    console.error.original = previousOriginal;
+
+    assert(fake.called);
+    assert.deepEqual(fake.args, ['exit(1)']);
+  });
+
+  it('does not log error on process.exit with code 0', function () {
+    var previousOriginal = console.error.original;
+    var fake = console.error.original = createFake();
+
+    process.exit(0);
+    console.error.original = previousOriginal;
+
+    assert(!fake.called);
+  });
+
   it('prints result in original console.log if no listeners', function () {
     brout.removeAllListeners();
     var previousOriginal = console.log.original;
