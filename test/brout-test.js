@@ -206,4 +206,23 @@ describe('brout', function () {
     assert.deepEqual(fake.args, ['123!']);
   });
 
+  it('logs traces', function () {
+    var originalWrite = process.stdout.write;
+    try {
+      var fake = process.stdout.write = createFake();
+
+      console.trace();
+
+      assert(fake.called);
+      var lines = fake.args[0].split('\n');
+      assert(lines.length > 0);
+      lines.slice(0, lines.length - 1).forEach(function (line) {
+        assert.equal(line.indexOf("    at "), 0, line);
+      });
+      assert.equal(lines[lines.length - 1], '');
+    } finally {
+      process.stdout.write = originalWrite;
+    }
+  });
+
 });
