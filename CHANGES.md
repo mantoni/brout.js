@@ -1,5 +1,10 @@
 # Changes
 
+## 0.1.5
+
+Don't break on old IE: Provide empty stubs for `log`, `info`, `warn` and
+`error` if console is not there.
+
 ## 0.1.4
 
 Implement `console.trace()`
