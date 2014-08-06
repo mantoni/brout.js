@@ -1,6 +1,7 @@
 # stdout and stderr for browsers
 
-Installs `process.stdout` and `process.stderr` and redirects `console`.
+Installs `process.stdout` and `process.stderr` and redirects `console` like
+node.
 
 Repository: <https://github.com/mantoni/brout.js>
 
@@ -27,12 +28,6 @@ Use with [browserify][] and [phantomic][]:
 $ browserify -t brout my-script.js | phantomic
 Hello stdout!
 Hello console!
-```
-
-Headless testing with [Mocha][] requires [mocaccino][]:
-
-```
-$ browserify -t brout my-test.js | mocaccino -b -r spec | phantomic
 ```
 
 ## API
@@ -79,5 +74,3 @@ MIT
 
 [browserify]: http://browserify.org
 [phantomic]: https://github.com/mantoni/phantomic
-[Mocha]: http://visionmedia.github.io/mocha/
-[mocaccino]: https://github.com/mantoni/mocaccino.js
