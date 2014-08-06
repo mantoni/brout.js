@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.0
+
+- Use through2 instead of through
+
 ## 0.2.0
 
 - Expose emitter as `process._brout`
