@@ -10,6 +10,9 @@
     "browserify-transform"
   ],
   "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",
+  "contributors": [
+    "Deema Yvanow <df.creative@gmail.com>"
+  ],
   "homepage": "https://github.com/mantoni/brout.js",
   "main": "./lib/transform.js",
   "browser": "./lib/brout.js",
