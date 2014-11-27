@@ -28,7 +28,7 @@
     "url": "https://github.com/mantoni/brout.js.git"
   },
   "dependencies": {
-    "through2": "^0.5"
+    "through2": "^0.6"
   },
   "devDependencies": {
     "mocha": "^1.21",
