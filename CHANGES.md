@@ -1,5 +1,10 @@
 # Changes
 
+## 1.0.1
+
+- Fix transform #1 (Deema Yvanow)
+- Bump through2 to 0.6
+
 ## 1.0.0
 
 - Use through2 instead of through
