@@ -1,33 +1,43 @@
 {
-  "name"            : "brout",
-  "version"         : "1.0.0",
-  "description"     : "stdout and stderr for browsers",
-  "keywords"        : ["stdout", "stderr", "browser", "browserify", "browserify-transform"],
-  "author"          : "Maximilian Antoni (http://maxantoni.de)",
-  "homepage"        : "https://github.com/mantoni/brout.js",
-  "main"            : "./lib/transform.js",
-  "browser"         : "./lib/brout.js",
-  "engines"         : {
-    "node"          : ">=0.10"
+  "name": "brout",
+  "version": "1.0.0",
+  "description": "stdout and stderr for browsers",
+  "keywords": [
+    "stdout",
+    "stderr",
+    "browser",
+    "browserify",
+    "browserify-transform"
+  ],
+  "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",
+  "homepage": "https://github.com/mantoni/brout.js",
+  "main": "./lib/transform.js",
+  "browser": "./lib/brout.js",
+  "engines": {
+    "node": ">=0.10"
   },
-  "scripts"         : {
-    "lint"          : "jslint --color \"**/*.js\"",
-    "test"          : "npm run lint && browserify ./test/*.js | mocaccino -b | phantomic"
+  "scripts": {
+    "lint": "jslint --color \"**/*.js\"",
+    "test": "npm run lint && browserify ./test/*.js | mocaccino -b | phantomic"
   },
-  "repository"      : {
-    "type"          : "git",
-    "url"           : "https://github.com/mantoni/brout.js.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mantoni/brout.js.git"
   },
-  "dependencies"    : {
-    "through2"      : "^0.5"
+  "dependencies": {
+    "through2": "^0.5"
   },
-  "devDependencies" : {
-    "mocha"         : "^1.21",
-    "jslint"        : "^0.6",
-    "browserify"    : "^5.9",
-    "mocaccino"     : "^0.2",
-    "phantomic"     : "^0.2"
+  "devDependencies": {
+    "mocha": "^1.21",
+    "jslint": "^0.6",
+    "browserify": "^5.9",
+    "mocaccino": "^0.2",
+    "phantomic": "^0.2"
   },
-  "files"           : ["lib", "README.md", "LICENSE"],
-  "license"         : "MIT"
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT"
 }
