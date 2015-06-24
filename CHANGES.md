@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.2
+
+- Update through2 to `^1.1`
+
 ## 1.0.1
 
 - Fix transform #1 (Deema Yvanow)
