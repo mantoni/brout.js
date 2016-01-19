@@ -1,5 +1,15 @@
 # Changes
 
+## 1.1.0
+
+Streams 3: Update `through2` to `2.0`
+
+Bump devDependencies:
+
+- `browserify@13.0`
+- `mocaccino@1.7`
+- `phantomic@1.4`
+
 ## 1.0.2
 
 - Update through2 to `^1.1`
