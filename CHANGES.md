@@ -1,5 +1,9 @@
 # Changes
 
+## 1.1.1
+
+- Fix referencing error on `console.log` and `console.error`
+
 ## 1.1.0
 
 Streams 3: Update `through2` to `2.0`
