@@ -13,16 +13,27 @@ var events = require('events');
 var assert = require('assert');
 
 
+// Get a reference to the original console functions:
+var broutConsoleLog = console.log;
+var broutConsoleErr = console.error;
+delete console.log;
+delete console.error;
+var originalConsoleLog = console.log;
+var originalConsoleErr = console.error;
+console.log = broutConsoleLog;
+console.error = broutConsoleErr;
+
+
 function originalOut(str) {
   if (str.indexOf('# >>>') !== 0) {
-    console.log.original.call(console, str.substring(0, str.length - 1));
+    originalConsoleLog.call(console, str.substring(0, str.length - 1));
   }
 }
 
 
 function originalErr(str) {
   if (str.indexOf('# >>>') !== 0) {
-    console.error.original.call(console, str.substring(0, str.length - 1));
+    originalConsoleErr.call(console, str.substring(0, str.length - 1));
   }
 }
 

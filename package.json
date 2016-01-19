@@ -21,21 +21,22 @@
   },
   "scripts": {
     "lint": "jslint --edition=latest --color \"**/*.js\"",
-    "test": "npm run lint && browserify ./test/*.js | mocaccino -b | phantomic"
+    "pretest": "npm run lint",
+    "test": "browserify -p mocaccino ./test/*.js | phantomic"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/mantoni/brout.js.git"
   },
   "dependencies": {
-    "through2": "^1.1"
+    "through2": "^2.0.0"
   },
   "devDependencies": {
-    "mocha": "^1.21",
+    "mocha": "^2.3.4",
     "jslint": "^0.8",
-    "browserify": "^10.2",
-    "mocaccino": "^0.2",
-    "phantomic": "^0.2"
+    "browserify": "^13.0.0",
+    "mocaccino": "^1.7.0",
+    "phantomic": "^1.4.0"
   },
   "files": [
     "lib",
