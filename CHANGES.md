@@ -1,5 +1,10 @@
 # Changes
 
+## 1.1.1
+
+- Fix referencing error on `console.log` and `console.error`
+- Fix the match criteria in the console.trace test
+
 ## 1.1.0
 
 Streams 3: Update `through2` to `2.0`

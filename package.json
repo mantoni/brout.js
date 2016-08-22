@@ -1,6 +1,6 @@
 {
   "name": "brout",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "stdout and stderr for browsers",
   "keywords": [
     "stdout",
@@ -22,7 +22,7 @@
   "scripts": {
     "lint": "jslint --edition=latest --color \"**/*.js\"",
     "pretest": "npm run lint",
-    "test": "browserify -p mocaccino ./test/*.js | phantomic"
+    "test": "browserify -p mocaccino test/brout-test.js | phantomic"
   },
   "repository": {
     "type": "git",

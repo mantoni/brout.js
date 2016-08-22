@@ -5,6 +5,7 @@
  *
  * @license MIT
  */
+/*jslint  regexp: true*/
 /*globals describe, it, beforeEach, afterEach*/
 'use strict';
 
@@ -16,10 +17,10 @@ var assert = require('assert');
 // Get a reference to the original console functions:
 var broutConsoleLog = console.log;
 var broutConsoleErr = console.error;
+var originalConsoleLog = console.log.original;
+var originalConsoleErr = console.error.original;
 delete console.log;
 delete console.error;
-var originalConsoleLog = console.log;
-var originalConsoleErr = console.error;
 console.log = broutConsoleLog;
 console.error = broutConsoleErr;
 
@@ -225,12 +226,15 @@ describe('brout', function () {
       console.trace();
 
       assert(fake.called);
-      var lines = fake.args[0].split('\n');
-      assert(lines.length > 0);
-      lines.slice(0, lines.length - 1).forEach(function (line) {
-        assert.equal(line.indexOf("    at "), 0, line);
+      var l, lines = fake.args[0].split('\n');
+      assert(l = lines.length > 0);
+      lines.slice(0, l - 1).forEach(function (line, i) {
+        if (i !== l - 1) {
+          assert.ok(!!line.match(/(?=^\s+at\s+)|(^.*@http:\/\/.+)/), line);
+        } else {
+          assert.equal(lines[lines.length - 1], '');
+        }
       });
-      assert.equal(lines[lines.length - 1], '');
     } finally {
       process.stdout.write = originalWrite;
     }
