@@ -11,7 +11,8 @@
   ],
   "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",
   "contributors": [
-    "Deema Yvanow <df.creative@gmail.com>"
+    "Deema Yvanow <df.creative@gmail.com>",
+    "cool-Blue <cool.blue@y7mail.com>"
   ],
   "homepage": "https://github.com/mantoni/brout.js",
   "main": "./lib/transform.js",
