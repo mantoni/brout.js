@@ -1,5 +1,10 @@
 # Changes
 
+## 1.1.1
+
+- Redirect `consol.info` to `stdout` and `console.error` to `stderr` instead of
+  aliasing `console.log` and `console.warn` (cool-Blue)
+
 ## 1.1.0
 
 Streams 3: Update `through2` to `2.0`
