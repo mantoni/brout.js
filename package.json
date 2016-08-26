@@ -23,7 +23,7 @@
   "scripts": {
     "lint": "jslint --edition=latest --color \"**/*.js\"",
     "pretest": "npm run lint",
-    "test": "browserify -p mocaccino ./test/*.js | phantomic"
+    "test": "browserify -p mocaccino ./test/brout-test.js | phantomic"
   },
   "repository": {
     "type": "git",
