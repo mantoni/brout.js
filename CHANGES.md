@@ -1,5 +1,11 @@
 # Changes
 
+## 1.2.0
+
+- Add support for [async call signatures][pull 10] for stream write (cool-Blue)
+
+[pull 10]: https://github.com/mantoni/brout.js/pull/10
+
 ## 1.1.1
 
 - Redirect `consol.info` to `stdout` and `console.error` to `stderr` instead of
