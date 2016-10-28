@@ -236,4 +236,27 @@ describe('brout', function () {
     }
   });
 
+  it('calls back after write if second argument is a function',
+    function (done) {
+
+      function cb() {
+        assert.deepEqual(out.args, ['# >>> Check']);
+        done();
+      }
+
+      process.stdout.write('# >>> Check', cb);
+
+    });
+
+  it('calls back after write if third argument is a function',
+    function (done) {
+
+      function cb() {
+        assert.deepEqual(out.args, ['# >>> Check']);
+        done();
+      }
+
+      process.stdout.write('# >>> Check', 'utf8', cb);
+
+    });
 });
