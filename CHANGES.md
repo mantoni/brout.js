@@ -1,5 +1,9 @@
 # Changes
 
+## 1.3.0
+
+- Detect `process` existence to support `browserify --no-detect-globals`.
+
 ## 1.2.0
 
 - Add support for [async call signatures][pull 10] for stream write (cool-Blue)
